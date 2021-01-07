@@ -1,0 +1,7 @@
+body{
+    background-image: url(timg.jpg);
+    background-repeat:no repeat;
+    background-attachment:fixed;
+    background-origin:border-box;
+    background-size:cover;
+}

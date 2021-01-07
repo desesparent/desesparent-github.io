@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"> 
+   <title></title>
+   <link href="background.css" rel="stylesheet" type="text/css"/></link>
+   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+		<style>
+			ul li{
+				float:left;
+				margin-left:3%;
+                padding-top:2%;
+			}
+			#uli{
+			    width:100%;
+				height:40px;
+				background-color:#060e14;
+				color:#ffffff;
+				margin-top:2%;
+				margin-left:-2%;
+			}
+	</style>
+<body>
+ 
+<div class="container">
+   <div class="row" >
+<button id="fat-btn" class="btn btn-primary"  type="button" onclick="show();">请选择种类</button>
+<span id="tresult"></span>
+   </div>
+	<ul style="list-style:none;" id="uli">
+		<li><div class="a"><a href="生活用品.html">生活用品</a></div></li>
+		<li><div class="a"><a href="药品.html">药品</a></div></li>
+		<li><div class="a"><a href="时装.html">时装</a></div></li>
+		<li><div class="a"><a href="鞋子.html">鞋子</a></div></li>
+		<li><div class="a"><a href="奢侈品.html">奢侈品</a></div></li>
+		<li><div class="a"><a href="食品.html">食品</a></div></li>
+		<li><div class="a"><a href="个人中心.html">返回主页<a><div></li>
+
+		<li>其他</li>
+		<li></li>
+	</ul>
+	</div>
+	<img src='奢侈品.jpg' width='1000' height='1000'> 
+</body>
+	<script>
+		function show(){
+		var status=$("#uli").css('display');
+			if(status=="none"){
+			$("#uli").show();
+			}else{
+			$("#uli").hide();
+			}
+			
+		}
+ 
+       $(document).ready(function(){
+              var Uarry=$("#uli li");
+//获取所有的li元素
+              $("#uli li").click(function(){
+//点击事件
+                   //测试直接获取值 
+var v=$(this).text(); 
+                   $("#tresult").text(v);
+              }) 
+       })
+	</script>
+</html>

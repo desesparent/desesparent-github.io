@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"> 
+   <title></title>
+   <link href="background.css" rel="stylesheet" type="text/css"/></link>
+   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+
+   <style>
+	* {
+		margin:0px;
+		padding:0px;
+	}
+	body {
+		position:relative;
+		height:1000px;
+		width:100%;
+		overflow:hidden;
+		background-color: #666;
+	}
+	span {
+		display:block;
+		opacity:0.7;
+	}
+</style>
+</head>
+
+		<style>
+			ul li{
+				float:left;
+				margin-left:3%;
+                padding-top:2%;
+			}
+			#uli{
+			    width:100%;
+				height:40px;
+				background-color:#060e14;
+				color:#ffffff;
+				margin-top:2%;
+				margin-left:-2%;
+			}
+	</style>
+<body>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.com {
+			width: 750px;
+			height: 340px;
+			margin:0 auto;
+			border: solid 2px red;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.com ul{
+			position: absolute;
+		}
+		.com ul li{
+			/* height: 340px; */
+		}
+		.com ul li img{
+			width: 750px; 
+			height: 340px;
+		}
+		.com ol{
+			position: absolute;
+			right: 5px;
+			bottom: 5px;
+		}
+		.com ol li{
+			width: 20px;
+			height: 20px;
+			background-color: lightgray;
+			display: inline-block;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 20px;
+			margin-left:5px;
+			float: left;
+		}
+		.com ol .on{
+			background-color: red;
+			color:#fff;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload= function(){
+			var com = document.getElementById('com');
+			var pic = document.getElementById('pic').getElementsByTagName('li');
+			var li = document.getElementById('num').getElementsByTagName('li');
+			var index=0;
+			var timer=null;
+			
+			timer = setInterval(autoPlay,1500);
+			
+			com.onmouseover = function() {
+				clearInterval(timer);
+			}
+			
+			com.onmouseout = function() {
+				timer = setInterval(autoPlay, 1500);
+			}
+			
+			for(var i=0;i<li.length;i++){
+				li[i].onmousemove=function(){
+					clearInterval(timer);
+					index=this.innerText-1;
+					changePic(index);
+				}
+			}
+			
+			function autoPlay(){
+				if(++index>=pic.length){
+					index=0;
+				}
+				changePic(index);
+			}
+			function changePic(liIndex){
+				for(var i=0;i<li.length;i++){
+					pic[i].style.display="none";
+					li[i].className="";
+				}
+				pic[liIndex].style.display="block";
+				li[liIndex].className="on";
+			}
+			
+			
+		}
+	</script>
+	<title></title>
+</head>
+<body>
+	<div class="com" id="com">
+		<ul id="pic">
+			<!-- <li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li> -->
+			<li><img src="图片1.jpg" alt=""/></li>
+			<li><img src="图片2.jpg" alt=""/></li>
+			<li><img src="图片3.jpg" alt=""/></li>
+			<li><img src="图片4.jpg" alt=""/></li>
+		</ul>
+		<ol id="num">
+			<li class="on">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ol>
+
+
+	</div>
+
+
+
+
+
+	<script>
+		$(function() {
+			setInterval(function() {
+				var maxW = document.body.clientWidth,
+					maxH = document.body.clientHeight,
+					left = Math.random() * maxW,
+					bottom = left - (Math.random() - 0.5) * 0.2 * maxW, //保证落下的位置水平有变化，但不大
+					opacity = 0.7 + 0.3 * Math.random();
+				speed = 30;
+				size = 20 + 10 * Math.random(), //字体20-30
+					color = '#fff';
+				// num = Math.floor(Math.random() * 10) //产生0-9随机数，当然你们可以自己设置
+				num ='*';
+				var style = 'position:absolute;top:0px;font-size:' + size + 'px;color:' + color + ';left:' + left + 'px;opacity:' + opacity;
+				var div = '<span class = "dd" style="' + style + '">' + num + '</span>'
+				$('body').append(div)
+				$('span').animate({
+					top: maxH,
+					left: bottom
+				}, 3000, function() {
+					$(this).remove() //这一步很关键，要把落下的去掉，不然会越积越多
+				});
+			}, 20) //20ms产生一个
+		})
+	</script>
+	
+<div class="container">
+   <div class="row" >
+<button id="fat-btn" class="btn btn-primary"  type="button" onclick="show();">请选择种类</button>
+<span id="tresult"></span>
+   </div>
+	<ul style="list-style:none;" id="uli">
+		<li><div class="a"><a href="生活用品.html">生活用品</a></div></li>
+		<li><div class="a"><a href="药品.html">药品</a></div></li>
+		<li><div class="a"><a href="时装.html">时装</a></div></li>
+		<li><div class="a"><a href="鞋子.html">鞋子</a></div></li>
+		<li><div class="a"><a href="奢侈品.html">奢侈品</a></div></li>
+		<li><div class="a"><a href="食品.html">食品</a></div></li>
+		<li><div class="a"><a href="个人中心.html">返回主页<a><div></li>
+		<li></li>
+	</ul>
+	</div>
+</body>
+<style>
+	.box{
+		width: 1226px;  /*宽高与图片宽高相同*/
+		height: 460px;
+		margin: 50px auto;   /*上外边距50px  水平自动居中*/
+		position: relative;  /*设置为先对定位，作为图片按钮小点的参考物*/
+	}
+	.img li{
+		list-style: none; /*去掉li标签前面的点*/
+
+		display:none;  /*默认不可见*/
+	}
+	img{
+		position: absolute; /*图片设为绝对定位，方便以外面的div为参考*/
+		top:0;
+		left: 0;
+	}
+	.box .left{
+		width: 41.5px;
+		height: 69px;
+		position: absolute;
+		background-image: url("images/icon-slides.png");  /*按钮背景用一张图片*/
+		top: 195.5px;
+		left: 40px;
+		background-position: -83px 0;  /*固定图片的位置*/
+	}
+	.box .right{
+		width: 41.5px;
+		height: 69px;
+		position: absolute;
+		background-image: url("images/icon-slides.png");
+		top:195.5px;
+		right: 40px;
+		background-position: -124.5px 0;
+	}
+	.left:hover{
+		background-position: 0 0;  /*以最开始的位置为参考  左、上移为负，右、下移为正*/
+	}
+	.right:hover{
+		background-position:-41.5px 0;
+
+	}
+	.focus{
+		position: absolute;
+		width: 175px;
+		height: 15px;
+
+		right: 100px;
+		bottom: 50px;
+	}
+	.focus span{
+		float: left;
+		display: block;
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;  /*将方块设为圆形*/
+		background-color: white;
+		margin-right: 10px;
+	}
+	.focus .content{
+		background-color: orangered;  
+	}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+		function show(){
+		var status=$("#uli").css('display');
+			if(status=="none"){
+			$("#uli").show();
+			}else{
+			$("#uli").hide();
+			}
+			
+		}
+ 
+       $(document).ready(function(){
+              var Uarry=$("#uli li");
+//获取所有的li元素
+              $("#uli li").click(function(){
+//点击事件
+                   //测试直接获取值 
+var v=$(this).text(); 
+                   $("#tresult").text(v);
+              }) 
+       })
+	</script>
+</html>
